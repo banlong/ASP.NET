@@ -20,7 +20,12 @@ namespace APM.WebAPI
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            //Enable the CORS
             config.EnableCors();
+
+            //format Json output
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
+                new CamelCasePropertyNamesContractResolver();
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
